@@ -1,8 +1,8 @@
 {
   "name": "react-components",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve --env develop"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js"
   },
   "author": "Viktoriia Bila",
   "devDependencies": {
@@ -15,6 +15,7 @@
     "mini-css-extract-plugin": "^2.1.0",
     "sass": "^1.37.0",
     "sass-loader": "^12.1.0",
+    "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.2.4",
     "typescript": "^4.3.5",
     "webpack": "^5.48.0",

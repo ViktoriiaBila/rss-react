@@ -4,8 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-module.exports = ({ develop }) => ({
-  mode: develop ? 'development' : 'production',
+module.exports = {
+  mode: 'development',
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'disc'),
@@ -52,6 +52,6 @@ module.exports = ({ develop }) => ({
     //    { from: 'public', to: 'assets' },
     //  ],
     //}),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
   ]
-});
+};
