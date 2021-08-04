@@ -8,6 +8,6 @@ module.exports = merge(common, {
     open: true,
     hot: true,
     port: 8080,
-    contentBase: path.join(__dirname, 'public')
-  }
+    contentBase: path.join(__dirname, 'public'),
+  },
 });

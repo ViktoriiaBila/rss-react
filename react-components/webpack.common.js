@@ -10,7 +10,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/[hash][ext]'
+    assetModuleFilename: 'assets/[hash][ext]',
   },
   module: {
     rules: [
@@ -33,25 +33,25 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   resolve: {
     extensions: ['.ts', '.js'],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
+      filename: '[name].[contenthash].css',
     }),
-    //new CopyPlugin({
+    // new CopyPlugin({
     //  patterns: [
     //    { from: 'public', to: 'assets' },
     //  ],
-    //}),
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
-  ]
+    // }),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+  ],
 };
