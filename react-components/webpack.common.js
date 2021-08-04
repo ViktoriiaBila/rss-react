@@ -8,7 +8,7 @@ module.exports = {
   mode: 'development',
   entry: './src/index.ts',
   output: {
-    path: path.resolve(__dirname, 'disc'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'assets/[hash][ext]'
   },
