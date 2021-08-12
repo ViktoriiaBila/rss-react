@@ -1,0 +1,32 @@
+@import '../../../../styles/variables.scss';
+
+.cardsField_card_footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-color: #9c9c9c;
+  border-radius: 0 0 $cardBorderRadius $cardBorderRadius;
+  font-size: 12px;
+  font-weight: bold;
+
+  &_likes,
+  &_views {
+    display: flex;
+    align-items: center;
+
+    &_icon {
+      width: 10px;
+      height: 10px;
+      margin-right: 3px;
+      background-size: 10px;
+    }
+  }
+
+  &_likes > &_likes_icon {
+    background-image: url('../../../../assets/icons/thumbUp.svg');
+  }
+
+  &_views > &_views_icon {
+    background-image: url('../../../../assets/icons/eye.svg');
+  }
+}
