@@ -3,7 +3,7 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js",
-    "lint": "npx eslint --ext .ts src",
+    "lint": "npx eslint --ext .ts,.tsx src",
     "fix": "npx eslint --ext .ts src --fix"
   },
   "author": "Viktoriia Bila",
