@@ -7,7 +7,7 @@ export function App(): JSX.Element {
   return (
     <div className="mainContainer">
       <SearchBar />
-      <CardsField />
+      <CardsField cards={cards} />
     </div>
   );
 }
