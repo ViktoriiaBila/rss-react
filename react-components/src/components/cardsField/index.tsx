@@ -17,19 +17,21 @@ interface ICardsProps {
 }
 
 export function CardsField(props: ICardsProps): JSX.Element {
-  const cards = props.cards.map((card) => {
-    return (
-      <Card
-        imgSrc={card.imgSrc}
-        imgAlt={card.imgAlt}
-        title={card.title}
-        author={card.author}
-        tags={card.tags}
-        likes={card.likes}
-        views={card.views}
-      />
-    );
-  });
+  const cards = props.cards
+    .sort(() => Math.random() - 0.5)
+    .map((card) => {
+      return (
+        <Card
+          imgSrc={card.imgSrc}
+          imgAlt={card.imgAlt}
+          title={card.title}
+          author={card.author}
+          tags={card.tags}
+          likes={card.likes}
+          views={card.views}
+        />
+      );
+    });
 
   return <div className="cardsField_wrapper">{cards}</div>;
 }
