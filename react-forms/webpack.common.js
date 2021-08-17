@@ -47,11 +47,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new CopyPlugin({
-      patterns: [
-        { from: 'public', to: 'assets' },
-      ],
-    }),
+    //new CopyPlugin({
+    //  patterns: [
+    //    { from: 'public', to: 'assets' },
+    //  ],
+    //}),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
   ],
 };
