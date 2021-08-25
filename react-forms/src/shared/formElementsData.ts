@@ -15,7 +15,7 @@ export enum EFormElementTitle {
   email = 'E-mail:',
   birthDate = 'BirthDate:',
   country = 'Country:',
-  messageText = 'Write your message',
+  messageText = 'Write your message:',
   agree = 'I argee with processing of my personal data',
   notify = 'I want to get notifications',
 }
