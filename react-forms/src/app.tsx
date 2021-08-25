@@ -1,5 +1,6 @@
 import React from 'react';
+import { Wrapper } from './components/wrapper';
 
 export function App(): JSX.Element {
-  return <h1>hello world</h1>;
+  return <Wrapper />;
 }
