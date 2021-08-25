@@ -5,6 +5,7 @@ import {
   EFormElementTitle,
   EFormElementType,
 } from '../../shared/formElementsData';
+import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
 
@@ -64,6 +65,13 @@ export function Form(): JSX.Element {
         type={EFormElementType.text}
         name={EFormElementNames.messageText}
         value={formValue.messageText}
+        onChange={formElementChangeHandler}
+      />
+      <CheckboxInput
+        title={EFormElementTitle.agree}
+        type={EFormElementType.checkbox}
+        name={EFormElementNames.agree}
+        checked={formValue.agree}
         onChange={formElementChangeHandler}
       />
     </form>
