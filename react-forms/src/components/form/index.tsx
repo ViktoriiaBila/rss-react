@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { countryNames } from '../../shared/constants';
 import {
   EFormElementNames,
   EFormElementTitle,
   EFormElementType,
 } from '../../shared/formElementsData';
 import { DataInput } from './formElements/dataInput';
+import { Select } from './formElements/select';
 
 export function Form(): JSX.Element {
   const [formValue, setformValue] = useState({
@@ -18,7 +20,7 @@ export function Form(): JSX.Element {
     notify: false,
   });
 
-  const formElementChangeHandler = (event) => {};
+  const formElementChangeHandler = () => {};
 
   return (
     <form>
@@ -49,6 +51,13 @@ export function Form(): JSX.Element {
         name={EFormElementNames.birthDate}
         value={formValue.birthDate}
         onChange={formElementChangeHandler}
+      />
+      <Select
+        title={EFormElementTitle.country}
+        name={EFormElementNames.country}
+        value={formValue.country}
+        onChange={formElementChangeHandler}
+        options={countryNames}
       />
       <DataInput
         title={EFormElementTitle.messageText}
