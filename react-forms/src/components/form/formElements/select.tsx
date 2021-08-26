@@ -6,7 +6,10 @@ export function Select(props: ISelectProps): JSX.Element {
   return (
     <div>
       <label htmlFor={props.name}>
-        <p>{props.title}</p>
+        <p>
+          {props.title}
+          {props.error && <span> * {props.errorMessage}</span>}
+        </p>
         <select
           name={props.name}
           value={props.value}

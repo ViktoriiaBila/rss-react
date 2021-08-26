@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { countryNames } from '../../shared/constants';
 import {
+  EFormElementErrorMessage,
   EFormElementNames,
   EFormElementTitle,
   EFormElementType,
 } from '../../shared/formElementsData';
+import { validateFunction } from '../../shared/validation';
 import { BtnSubmit } from './formElements/btnSubmit';
 import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
@@ -30,8 +32,63 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     country: false,
     messageText: false,
     agree: false,
-    notify: false,
   });
+
+  const validateFirstName = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      firstName: validateFunction.text(value),
+    }));
+  };
+  const validateLastName = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      lastName: validateFunction.text(value),
+    }));
+  };
+  const validateEmail = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      email: validateFunction.email(value),
+    }));
+  };
+  const validateBirthDate = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      birthDate: validateFunction.date(value),
+    }));
+  };
+  const validateCountry = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      country: validateFunction.country(value),
+    }));
+  };
+  const validateMessageText = (value: string) => {
+    setErrors((state) => ({
+      ...state,
+      messageText: validateFunction.messageText(value),
+    }));
+  };
+  const validateAgree = (value: boolean) => {
+    setErrors((state) => ({
+      ...state,
+      agree: !value,
+    }));
+  };
+
+  const validate = (name: string, value: string | boolean) => {
+    if (name === EFormElementNames.firstName)
+      validateFirstName(value as string);
+    if (name === EFormElementNames.lastName) validateLastName(value as string);
+    if (name === EFormElementNames.email) validateEmail(value as string);
+    if (name === EFormElementNames.birthDate)
+      validateBirthDate(value as string);
+    if (name === EFormElementNames.country) validateCountry(value as string);
+    if (name === EFormElementNames.messageText)
+      validateMessageText(value as string);
+    if (name === EFormElementNames.agree) validateAgree(value as boolean);
+  };
 
   const formElementChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -46,6 +103,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
       ...state,
       [name]: value,
     }));
+
+    validate(name, value);
   };
 
   const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -65,6 +124,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.firstName}
         value={formValue.firstName}
         onChange={formElementChangeHandler}
+        error={errors.firstName}
+        errorMessage={EFormElementErrorMessage.firstName}
       />
       <DataInput
         title={EFormElementTitle.lastName}
@@ -72,6 +133,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.lastName}
         value={formValue.lastName}
         onChange={formElementChangeHandler}
+        error={errors.lastName}
+        errorMessage={EFormElementErrorMessage.lastName}
       />
       <DataInput
         title={EFormElementTitle.email}
@@ -79,6 +142,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.email}
         value={formValue.email}
         onChange={formElementChangeHandler}
+        error={errors.email}
+        errorMessage={EFormElementErrorMessage.email}
       />
       <DataInput
         title={EFormElementTitle.birthDate}
@@ -86,6 +151,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.birthDate}
         value={formValue.birthDate}
         onChange={formElementChangeHandler}
+        error={errors.birthDate}
+        errorMessage={EFormElementErrorMessage.birthDate}
       />
       <Select
         title={EFormElementTitle.country}
@@ -93,6 +160,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         value={formValue.country}
         onChange={formElementChangeHandler}
         options={countryNames}
+        error={errors.country}
+        errorMessage={EFormElementErrorMessage.country}
       />
       <DataInput
         title={EFormElementTitle.messageText}
@@ -100,6 +169,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.messageText}
         value={formValue.messageText}
         onChange={formElementChangeHandler}
+        error={errors.messageText}
+        errorMessage={EFormElementErrorMessage.messageText}
       />
       <CheckboxInput
         title={EFormElementTitle.agree}
@@ -107,8 +178,20 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         name={EFormElementNames.agree}
         checked={formValue.agree}
         onChange={formElementChangeHandler}
+        error={errors.agree}
+        errorMessage={EFormElementErrorMessage.agree}
       />
-      <BtnSubmit />
+      <BtnSubmit
+        onClick={() => {
+          validateFirstName(formValue.firstName);
+          validateLastName(formValue.lastName);
+          validateEmail(formValue.email);
+          validateBirthDate(formValue.birthDate);
+          validateCountry(formValue.country);
+          validateMessageText(formValue.messageText);
+          validateAgree(formValue.agree);
+        }}
+      />
     </form>
   );
 }

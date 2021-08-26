@@ -18,3 +18,5 @@ export const countryNames = [
   'United Kingdom',
   'United States',
 ];
+
+export const defaultCountryOption = 'choose your country...';

@@ -4,7 +4,10 @@ export function DataInput(props: IDataInputProps): JSX.Element {
   return (
     <div>
       <label htmlFor={props.name}>
-        <p>{props.title}</p>
+        <p>
+          {props.title}
+          {props.error && <span> * {props.errorMessage}</span>}
+        </p>
         <input
           type={props.type}
           name={props.name}

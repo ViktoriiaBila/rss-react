@@ -26,3 +26,13 @@ export enum EFormElementType {
   select = 'select-one',
   checkbox = 'checkbox',
 }
+
+export enum EFormElementErrorMessage {
+  firstName = 'must be filled and consist of only letters',
+  lastName = 'must be filled and consist of only letters',
+  email = 'must be filled and follow the format - xxx@xxx.xxx',
+  birthDate = 'must be chosen',
+  country = 'must be chosen',
+  messageText = 'must be filled',
+  agree = 'must be chosen',
+}

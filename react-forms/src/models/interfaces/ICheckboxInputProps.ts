@@ -4,4 +4,6 @@ interface ICheckboxInputProps {
   name: string;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  error: boolean;
+  errorMessage: string;
 }

@@ -1,0 +1,3 @@
+interface IBtnSubmitProps {
+  onClick: () => void;
+}
