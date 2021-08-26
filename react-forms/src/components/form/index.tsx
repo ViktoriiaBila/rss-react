@@ -22,6 +22,17 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     notify: false,
   });
 
+  const [errors, setErrors] = useState({
+    firstName: false,
+    lastName: false,
+    email: false,
+    birthDate: false,
+    country: false,
+    messageText: false,
+    agree: false,
+    notify: false,
+  });
+
   const formElementChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
@@ -39,9 +50,11 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
 
   const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setFormValues((state) =>
-      state !== null ? [...state, formValue] : [formValue],
-    );
+    if (!Object.values(errors).find((error) => error === true)) {
+      setFormValues((state) =>
+        state !== null ? [...state, formValue] : [formValue],
+      );
+    }
   };
 
   return (
