@@ -5,11 +5,12 @@ import {
   EFormElementTitle,
   EFormElementType,
 } from '../../shared/formElementsData';
+import { BtnSubmit } from './formElements/btnSubmit';
 import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
 
-export function Form(): JSX.Element {
+export function Form({ setFormValues }: IFormProps): JSX.Element {
   const [formValue, setformValue] = useState({
     firstName: '',
     lastName: '',
@@ -36,8 +37,15 @@ export function Form(): JSX.Element {
     }));
   };
 
+  const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormValues((state) =>
+      state !== null ? [...state, formValue] : [formValue],
+    );
+  };
+
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <DataInput
         title={EFormElementTitle.firstName}
         type={EFormElementType.text}
@@ -87,6 +95,7 @@ export function Form(): JSX.Element {
         checked={formValue.agree}
         onChange={formElementChangeHandler}
       />
+      <BtnSubmit />
     </form>
   );
 }
