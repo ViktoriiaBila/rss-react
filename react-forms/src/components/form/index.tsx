@@ -21,7 +21,20 @@ export function Form(): JSX.Element {
     notify: false,
   });
 
-  const formElementChangeHandler = () => {};
+  const formElementChangeHandler = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { type, name } = event.target;
+    const value =
+      type !== EFormElementType.checkbox
+        ? event.target.value
+        : (event as React.ChangeEvent<HTMLInputElement>).target.checked;
+
+    setformValue((state) => ({
+      ...state,
+      [name]: value,
+    }));
+  };
 
   return (
     <form>
