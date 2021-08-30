@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './form.scss';
-import { countryNames } from '../../shared/constants';
+import { countryNames, defaultCountryOption } from '../../shared/constants';
 import {
   EFormElementErrorMessage,
   EFormElementNames,
@@ -19,7 +19,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     lastName: '',
     email: '',
     birthDate: '',
-    country: '',
+    country: defaultCountryOption,
     messageText: '',
     agree: false,
     notify: true,
