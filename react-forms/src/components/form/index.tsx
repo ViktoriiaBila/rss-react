@@ -117,7 +117,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
+    <form className="form" onSubmit={formSubmitHandler}>
       <DataInput
         title={EFormElementTitle.firstName}
         type={EFormElementType.text}
@@ -126,6 +126,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.firstName}
         errorMessage={EFormElementErrorMessage.firstName}
+        autoComplete={true}
       />
       <DataInput
         title={EFormElementTitle.lastName}
@@ -135,6 +136,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.lastName}
         errorMessage={EFormElementErrorMessage.lastName}
+        autoComplete={true}
       />
       <DataInput
         title={EFormElementTitle.email}
@@ -144,6 +146,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.email}
         errorMessage={EFormElementErrorMessage.email}
+        autoComplete={true}
       />
       <DataInput
         title={EFormElementTitle.birthDate}
@@ -153,6 +156,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.birthDate}
         errorMessage={EFormElementErrorMessage.birthDate}
+        autoComplete={true}
       />
       <Select
         title={EFormElementTitle.country}
@@ -171,6 +175,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.messageText}
         errorMessage={EFormElementErrorMessage.messageText}
+        autoComplete={false}
       />
       <CheckboxInput
         title={EFormElementTitle.agree}

@@ -2,18 +2,22 @@ import React from 'react';
 
 export function DataInput(props: IDataInputProps): JSX.Element {
   return (
-    <div>
-      <label htmlFor={props.name}>
-        <p>
+    <div className="form__element__container">
+      <label className="form__element__label" htmlFor={props.name}>
+        <p className="form__element__title">
           {props.title}
           {props.error && <span> * {props.errorMessage}</span>}
         </p>
-        <input
-          type={props.type}
-          name={props.name}
-          value={props.value}
-          onChange={(event) => props.onChange(event)}
-        />
+        <div className="form__element__input__container">
+          <input
+            className={`form__element__input ${props.name}`}
+            type={props.type}
+            name={props.name}
+            value={props.value}
+            onChange={(event) => props.onChange(event)}
+            autoComplete={props.autoComplete ? 'on' : 'off'}
+          />
+        </div>
       </label>
     </div>
   );

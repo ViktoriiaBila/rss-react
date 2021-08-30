@@ -6,4 +6,5 @@ interface IDataInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error: boolean;
   errorMessage: string;
+  autoComplete: boolean;
 }
