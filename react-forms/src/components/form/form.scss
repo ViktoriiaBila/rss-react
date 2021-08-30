@@ -4,6 +4,7 @@
   max-width: $formWidth;
   margin: 0 auto;
   background-color: #beb8af;
+  border-radius: 0 0 $formBorderRadius $formBorderRadius;
 
   &__element {
     &__container {
@@ -16,6 +17,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &.form-check-label {
+        align-items: unset;
+      }
     }
 
     &__title {
@@ -62,6 +67,14 @@
     &__select {
       font-size: 16px;
       width: 70%;
+    }
+  }
+
+  &__btn-submit {
+    &__container {
+      display: flex;
+      justify-content: center;
+      padding: 30px 0;
     }
   }
 }
