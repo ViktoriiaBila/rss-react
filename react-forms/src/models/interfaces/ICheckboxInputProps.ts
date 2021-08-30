@@ -6,4 +6,5 @@ interface ICheckboxInputProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   error: boolean;
   errorMessage: string;
+  switch: boolean;
 }

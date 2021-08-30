@@ -2,10 +2,17 @@ import React from 'react';
 
 export function CheckboxInput(props: ICheckboxInputProps): JSX.Element {
   return (
-    <div className="form__element__container">
-      <label className="form__element__label" htmlFor={props.name}>
+    <div
+      className={`form__element__container form-check ${
+        props.switch && 'form-switch'
+      }`}
+    >
+      <label
+        className="form__element__label form-check-label"
+        htmlFor={props.name}
+      >
         <input
-          className={`form__element__input-${props.name}`}
+          className={`form__element__input-${props.name} form-check-input`}
           type={props.type}
           name={props.name}
           checked={props.checked}

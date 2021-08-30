@@ -1,5 +1,5 @@
 import React from 'react';
-import { defaultCountryOption } from '../../../shared/constants';
+import { defaultCountryOption } from '../../../../shared/constants';
 
 export function Select(props: ISelectProps): JSX.Element {
   const options = props.options.map((option) => <option>{option}</option>);
