@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './form.scss';
 import { countryNames } from '../../shared/constants';
 import {
   EFormElementErrorMessage,
@@ -8,7 +9,7 @@ import {
 } from '../../shared/formElementsData';
 import { validateFunction } from '../../shared/validation';
 import { BtnSubmit } from './formElements/btnSubmit';
-import { CheckboxInput } from './formElements/checkboxInput';
+import { CheckboxInput } from './formElements/checboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
 
@@ -21,7 +22,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     country: '',
     messageText: '',
     agree: false,
-    notify: false,
+    notify: true,
   });
 
   const [errors, setErrors] = useState({
@@ -107,9 +108,13 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     validate(name, value);
   };
 
+  const NoErrors = () => {
+    return !Object.values(errors).find((error) => error === true);
+  };
+
   const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!Object.values(errors).find((error) => error === true)) {
+    if (NoErrors()) {
       setFormValues((state) =>
         state !== null ? [...state, formValue] : [formValue],
       );
@@ -185,6 +190,17 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         onChange={formElementChangeHandler}
         error={errors.agree}
         errorMessage={EFormElementErrorMessage.agree}
+        switch={false}
+      />
+      <CheckboxInput
+        title={EFormElementTitle.notify}
+        type={EFormElementType.checkbox}
+        name={EFormElementNames.notify}
+        checked={formValue.notify}
+        onChange={formElementChangeHandler}
+        error={false}
+        errorMessage={''}
+        switch={true}
       />
       <BtnSubmit
         onClick={() => {
@@ -196,6 +212,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
           validateMessageText(formValue.messageText);
           validateAgree(formValue.agree);
         }}
+        disabled={!NoErrors()}
       />
     </form>
   );
