@@ -9,7 +9,7 @@ import {
 } from '../../shared/formElementsData';
 import { validateFunction } from '../../shared/validation';
 import { BtnSubmit } from './formElements/btnSubmit';
-import { CheckboxInput } from './formElements/checboxInput';
+import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
 
