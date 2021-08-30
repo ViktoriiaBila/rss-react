@@ -1,10 +1,16 @@
 @import './fonts.scss';
+@import './variables.scss';
 
-body {
+*,
+::after,
+::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: 'Nunito';
-  font-size: 18px;
+  font-size: $formFontSixe;
   background-color: #cfcece;
 }

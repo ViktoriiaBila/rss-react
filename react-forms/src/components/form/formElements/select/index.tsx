@@ -7,10 +7,7 @@ export function Select(props: ISelectProps): JSX.Element {
   return (
     <div className="form__element__container">
       <label className="form__element__label" htmlFor={props.name}>
-        <p className="form__element__title">
-          {props.title}
-          {props.error && <span> * {props.errorMessage}</span>}
-        </p>
+        <p className="form__element__title">{props.title}</p>
         <div className="form__element__select__container">
           <select
             className="form__element__select"
@@ -23,6 +20,9 @@ export function Select(props: ISelectProps): JSX.Element {
           </select>
         </div>
       </label>
+      {props.error && (
+        <span className="form__element__mistake"> * {props.errorMessage}</span>
+      )}
     </div>
   );
 }
