@@ -12,6 +12,7 @@ import { BtnSubmit } from './formElements/btnSubmit';
 import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
+import { Header } from '../header';
 
 export function Form({ setFormValues }: IFormProps): JSX.Element {
   const [formValue, setformValue] = useState({
@@ -123,6 +124,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
 
   return (
     <form className="form" onSubmit={formSubmitHandler}>
+      <Header />
       <DataInput
         title={EFormElementTitle.firstName}
         type={EFormElementType.text}
