@@ -8,7 +8,7 @@ export function Wrapper(): JSX.Element {
   return (
     <div className="wrapper">
       <Form setFormValues={setFormValues} />
-      <CardsField formValues={formValues} />
+      {formValues ? <CardsField formValues={formValues} /> : ''}
     </div>
   );
 }
