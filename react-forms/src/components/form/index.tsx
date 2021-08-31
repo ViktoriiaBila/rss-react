@@ -13,6 +13,7 @@ import { CheckboxInput } from './formElements/checkboxInput';
 import { DataInput } from './formElements/dataInput';
 import { Select } from './formElements/select';
 import { Header } from '../header';
+import { MessageText } from './formElements/messageText';
 
 export function Form({ setFormValues }: IFormProps): JSX.Element {
   const [formValue, setFormValue] = useState({
@@ -93,7 +94,9 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
   };
 
   const formElementChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    event: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
   ) => {
     const { type, name } = event.target;
     const value =
@@ -188,9 +191,8 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         error={errors.country}
         errorMessage={EFormElementErrorMessage.country}
       />
-      <DataInput
+      <MessageText
         title={EFormElementTitle.messageText}
-        type={EFormElementType.text}
         name={EFormElementNames.messageText}
         value={formValue.messageText}
         onChange={formElementChangeHandler}

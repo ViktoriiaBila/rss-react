@@ -31,7 +31,8 @@
     }
 
     &__input,
-    &__select {
+    &__select,
+    &__textarea {
       display: flex;
       justify-content: flex-start;
       width: 100%;
@@ -47,13 +48,14 @@
         width: $formElementWidth;
         margin-left: 70px;
       }
+    }
 
-      &.messageText {
-        height: 100px;
-        background-color: #ffffff;
-        border: 0;
-        border-radius: $formBorderRadius/4;
-      }
+    &__textarea {
+      height: 100px;
+      padding: 5px;
+      background-color: #ffffff;
+      border: 0;
+      border-radius: $formBorderRadius/4;
     }
   }
 
