@@ -15,7 +15,7 @@ import { Select } from './formElements/select';
 import { Header } from '../header';
 
 export function Form({ setFormValues }: IFormProps): JSX.Element {
-  const [formValue, setformValue] = useState({
+  const [formValue, setFormValue] = useState({
     firstName: '',
     lastName: '',
     email: '',
@@ -101,7 +101,7 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
         ? event.target.value
         : (event as React.ChangeEvent<HTMLInputElement>).target.checked;
 
-    setformValue((state) => ({
+    setFormValue((state) => ({
       ...state,
       [name]: value,
     }));
