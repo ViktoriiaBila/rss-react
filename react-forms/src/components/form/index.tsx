@@ -113,12 +113,26 @@ export function Form({ setFormValues }: IFormProps): JSX.Element {
     return !Object.values(errors).find((error) => error === true);
   };
 
+  const reset = () => {
+    setFormValue({
+      firstName: '',
+      lastName: '',
+      email: '',
+      birthDate: '',
+      country: defaultCountryOption,
+      messageText: '',
+      agree: false,
+      notify: true,
+    });
+  };
+
   const formSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (NoErrors()) {
       setFormValues((state) =>
         state !== null ? [...state, formValue] : [formValue],
       );
+      reset();
     }
   };
 
