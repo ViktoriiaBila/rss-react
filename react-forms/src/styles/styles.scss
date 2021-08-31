@@ -11,6 +11,11 @@
 
 body {
   font-family: 'Nunito';
-  font-size: $formFontSixe;
+  font-size: $formFontSize;
   background-color: #cfcece;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
 }

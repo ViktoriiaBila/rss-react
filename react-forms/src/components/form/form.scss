@@ -1,10 +1,10 @@
 @import '../../styles/variables.scss';
 
 .form {
-  max-width: $formWidth;
-  margin: 0 auto;
+  width: $formWidth;
+  max-height: $formHeight;
   background-color: #beb8af;
-  border-radius: 0 0 $formBorderRadius $formBorderRadius;
+  border-radius: $formBorderRadius;
 
   &__element {
     &__container {
@@ -37,7 +37,7 @@
       width: 100%;
       padding: 0;
       font-family: 'Nunito';
-      font-size: $formFontSixe;
+      font-size: $formFontSize;
       background-color: transparent;
       border: 0;
       border-bottom: 1px solid;

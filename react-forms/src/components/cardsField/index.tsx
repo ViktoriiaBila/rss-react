@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from './card';
+import './cardsField.scss';
 
 export function CardsField(props: ICardsFieldProps): JSX.Element {
   const cards =
@@ -14,15 +15,6 @@ export function CardsField(props: ICardsFieldProps): JSX.Element {
             messageText={card.messageText}
           />
         ))
-      : [
-          <Card
-            firstName="test"
-            lastName="test"
-            email="test"
-            birthDate="test"
-            country="test"
-            messageText="testtesttesttesttesttesttesttest testtesttesttesttesttesttesttest testtesttesttesttesttesttesttest testtesttesttesttesttesttest testtesttesttesttest testtesttesttesttesttesttesttest"
-          />,
-        ];
-  return <div>{cards}</div>;
+      : [];
+  return <div className="cardsField">{cards}</div>;
 }
