@@ -18,7 +18,7 @@ export function SearchForm(): JSX.Element {
     setIsLoading(true);
     try {
       const response: AxiosResponse<GET200_Photos> = await axiosInstance.get(
-        `&api_key=${APIKEY}&text=${searchValue}&per_page=20&page=1&format=json&nojsoncallback=1`,
+        `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&per_page=20&page=1&format=json&nojsoncallback=1`,
       );
       setPhotos(response.data.photos.photo);
     } catch (error) {
