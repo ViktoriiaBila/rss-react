@@ -1,28 +1,42 @@
+import { AxiosResponse } from 'axios';
 import React, { useState } from 'react';
+import { axiosInstance } from '../services/api';
+import { APIKEY } from '../shared/constants/apiKey';
 
 export function SearchForm(): JSX.Element {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [photos, setPhotos] = useState<Array<Photo> | null>();
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchValue(value);
   };
 
-  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    try {
+      const response: AxiosResponse<GET200_Photos> = await axiosInstance.get(
+        `&api_key=${APIKEY}&text=${searchValue}&per_page=20&page=1&format=json&nojsoncallback=1`,
+      );
+      setPhotos(response.data.photos.photo);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
-    <form onSubmit={(event) => submitHandler(event)}>
-      <label htmlFor="searchBar">
-        <input
-          type="search"
-          name="searchBar"
-          value={searchValue}
-          onChange={(event) => changeHandler(event)}
-        />
-      </label>
-      <input type="submit" value="search" />
-    </form>
+    <div>
+      <form onSubmit={submitHandler}>
+        <label htmlFor="searchBar">
+          <input
+            type="text"
+            name="searchBar"
+            value={searchValue}
+            onChange={changeHandler}
+          />
+        </label>
+        <input type="submit" value="search" />
+      </form>
+    </div>
   );
 }
