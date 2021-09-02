@@ -1,0 +1,47 @@
+@import '../../styles/variables.scss';
+
+.photoField {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: $photoFieldMargin;
+
+  &__photoElement {
+    display: flex;
+    margin: $photoFieldMargin/2;
+    background-color: $darkPurple;
+    border-radius: $photoElementBorderRadius;
+
+    &__photo {
+      display: block;
+      width: 100%;
+      border-radius: $photoElementBorderRadius 0 0 $photoElementBorderRadius;
+
+      &__container {
+        width: $photoWidth;
+      }
+    }
+
+    &__text {
+      min-width: $MaxtextWidth;
+      max-width: $MintextWidth;
+      padding: $textPadding;
+
+      &__owner {
+        font-family: $boldFont;
+        color: $white;
+      }
+
+      &__hr {
+        width: 100%;
+        height: $hrHeigth;
+        background-color: $lightGreen;
+      }
+
+      &__title {
+        word-wrap: break-word;
+        font-size: $titleFontSize;
+      }
+    }
+  }
+}
