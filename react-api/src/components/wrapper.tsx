@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PhotosField } from './photosField';
-import { SearchForm } from './searchBar';
+import { SearchForm } from './searchForm';
 
 export function Wrapper(): JSX.Element {
   const [photos, setPhotos] = useState<Array<Photo> | null>(null);
