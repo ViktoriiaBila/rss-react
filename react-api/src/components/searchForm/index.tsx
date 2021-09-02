@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios';
 import React, { useState } from 'react';
 import { axiosInstance } from '../../services/api';
 import { APIKEY } from '../../shared/constants/apiKey';
+import './searchForm.scss';
 
 export function SearchForm(props: ISearchFormProps): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -27,16 +28,21 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <label htmlFor="searchBar">
+    <form className="searchForm" onSubmit={submitHandler}>
+      <label className="searchForm__label" htmlFor="searchBar">
         <input
+          className="searchForm__input"
           type="text"
           name="searchBar"
           value={searchValue}
           onChange={changeHandler}
+          autoComplete="off"
+          placeholder="write something..."
         />
       </label>
-      <input type="submit" value="search" />
+      <button className="searchForm__submitBtn" type="submit">
+        <div className="searchForm__submitBtn__icon"></div>
+      </button>
     </form>
   );
 }
