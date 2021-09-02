@@ -21,3 +21,20 @@ interface Photo {
   server: string;
   title: string;
 }
+
+// props types
+
+interface ISearchFormProps {
+  setPhotos: React.Dispatch<React.SetStateAction<Array<Photo> | null>>;
+}
+
+interface IPhotosFieldProps {
+  photos: Array<Photo> | null;
+}
+
+interface IPhotoElementProps {
+  url: string;
+  alt: string;
+  owner: string;
+  title: string;
+}
