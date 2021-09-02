@@ -5,14 +5,19 @@ $beige: #f0d6c7;
 $darkGreen: #78a36f;
 $lightGreen: #a6f097;
 $white: #ffffff;
-
+$semiTransparentBlack: rgb(0, 0, 0, 0.5);
 // search bar
 $searchBarWidth: 400px;
 $searchBarHeight: 40px;
 $searchBarBorderRadius: 20px;
 
 // submit button
-
 $submitBtnWidth: 40px;
 $submitBtnHeight: 40px;
 $submitBtnBorderRadius: 20px;
+
+// loading popup
+$loadingPopupWidth: 400px;
+$loadingPopupHeight: 100px;
+$loadingPopupBorderRadius: 20px;
+$loadingPopupFontSize: 20px;

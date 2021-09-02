@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.loadingPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $loadingPopupWidth;
+  height: $loadingPopupHeight;
+  background-color: $beige;
+  border-radius: $loadingPopupBorderRadius;
+
+  &__container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: $semiTransparentBlack;
+  }
+
+  &__text {
+    font-size: $loadingPopupFontSize;
+  }
+}
