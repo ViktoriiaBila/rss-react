@@ -26,10 +26,11 @@ interface Photo {
 
 interface ISearchFormProps {
   setPhotos: React.Dispatch<React.SetStateAction<Array<Photo> | null>>;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface IPhotosFieldProps {
-  photos: Array<Photo> | null;
+  photos: Array<Photo>;
 }
 
 interface IPhotoElementProps {

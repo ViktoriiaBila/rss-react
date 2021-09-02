@@ -5,7 +5,6 @@ import { APIKEY } from '../../shared/constants/apiKey';
 
 export function SearchForm(props: ISearchFormProps): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -14,7 +13,7 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsLoading(true);
+    props.setIsLoading(true);
     try {
       const response: AxiosResponse<GET200_Photos> = await axiosInstance.get(
         `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&per_page=20&page=1&format=json&nojsoncallback=1`,
@@ -23,24 +22,21 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoading(false);
+      props.setIsLoading(false);
     }
   };
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <label htmlFor="searchBar">
-          <input
-            type="text"
-            name="searchBar"
-            value={searchValue}
-            onChange={changeHandler}
-          />
-        </label>
-        <input type="submit" value="search" />
-      </form>
-      {isLoading ? <div className="loadingPopup">loading...</div> : ''}
-    </div>
+    <form onSubmit={submitHandler}>
+      <label htmlFor="searchBar">
+        <input
+          type="text"
+          name="searchBar"
+          value={searchValue}
+          onChange={changeHandler}
+        />
+      </label>
+      <input type="submit" value="search" />
+    </form>
   );
 }
