@@ -10,6 +10,7 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
 
   const clickCrossBtnHandler = () => {
     setSearchValue('');
+    setEmptySearchBar(true);
   };
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
