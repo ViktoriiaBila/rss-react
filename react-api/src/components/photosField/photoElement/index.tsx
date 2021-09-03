@@ -2,19 +2,16 @@ import React from 'react';
 
 export function PhotoElement(props: IPhotoElementProps): JSX.Element {
   return (
-    <div className="photoField__photoElement">
-      <div className="photoField__photoElement__photo__container">
+    <tr className="photoField__photoElement">
+      <td className="photoField__photoElement__photo">
         <img
-          className="photoField__photoElement__photo"
+          className="photoField__photoElement__photo__img"
           src={props.url}
           alt={props.alt}
         />
-      </div>
-      <div className="photoField__photoElement__text">
-        <p className="photoField__photoElement__text__owner">{props.owner}</p>
-        <div className="photoField__photoElement__text__hr"></div>
-        <p className="photoField__photoElement__text__title">{props.title}</p>
-      </div>
-    </div>
+      </td>
+      <td className="photoField__photoElement__owner">{props.owner}</td>
+      <td className="photoField__photoElement__title">{props.title}</td>
+    </tr>
   );
 }

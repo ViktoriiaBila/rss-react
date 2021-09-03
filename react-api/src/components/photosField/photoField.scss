@@ -1,47 +1,41 @@
 @import '../../styles/variables.scss';
 
 .photoField {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   margin: $photoFieldMargin;
+  border-spacing: $padding;
+
+  &__photoElement.main {
+    background-color: $darkPurple;
+    text-transform: uppercase;
+    text-align: center;
+
+    & > td {
+      font-family: $boldFont;
+      font-size: $loadingPopupFontSize;
+      color: $white;
+    }
+  }
 
   &__photoElement {
-    display: flex;
-    margin: $photoFieldMargin/2;
-    background-color: $darkPurple;
-    border-radius: $photoElementBorderRadius;
+    background-color: $lightPurple2;
 
     &__photo {
-      display: block;
-      width: 100%;
       border-radius: $photoElementBorderRadius 0 0 $photoElementBorderRadius;
-
-      &__container {
-        width: $photoWidth;
+      &__img {
+        display: block;
+        border-radius: inherit;
       }
     }
 
-    &__text {
-      min-width: $MaxtextWidth;
-      max-width: $MintextWidth;
-      padding: $textPadding;
+    &__owner {
+      padding: $padding;
+    }
 
-      &__owner {
-        font-family: $boldFont;
-        color: $white;
-      }
-
-      &__hr {
-        width: 100%;
-        height: $hrHeigth;
-        background-color: $lightGreen;
-      }
-
-      &__title {
-        word-wrap: break-word;
-        font-size: $titleFontSize;
-      }
+    &__title {
+      max-width: $MaxTitleWidth;
+      padding: $padding;
+      border-radius: 0 $photoElementBorderRadius $photoElementBorderRadius 0;
+      word-wrap: break-word;
     }
   }
 }
