@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .searchForm {
+  position: relative;
   display: flex;
 
   &__input {
@@ -15,7 +16,34 @@
     outline: none;
   }
 
+  &__crossBtn {
+    position: absolute;
+    left: $searchBarWidth - $submitBtnWidth;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $crossWidth;
+    height: $crossHeight;
+    background-color: $white;
+    border: none;
+    outline: none;
+
+    &__icon {
+      width: 60%;
+      height: 60%;
+      background-image: url('../../assets/icons/cross.svg');
+      background-size: 100%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: $submitBtnWidth;
     height: $submitBtnHeight;
     background-color: $white;
@@ -24,8 +52,8 @@
     outline: none;
 
     &__icon {
-      width: 70%;
-      height: 70%;
+      width: 50%;
+      height: 50%;
       background-image: url('../../assets/icons/search.svg');
       background-size: 100%;
     }

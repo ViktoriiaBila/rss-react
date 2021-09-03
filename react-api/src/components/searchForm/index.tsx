@@ -6,10 +6,20 @@ import './searchForm.scss';
 
 export function SearchForm(props: ISearchFormProps): JSX.Element {
   const [searchValue, setSearchValue] = useState<string>('');
+  const [emptySearchBar, setEmptySearchBar] = useState<boolean>(true);
+
+  const clickCrossBtnHandler = () => {
+    setSearchValue('');
+  };
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchValue(value);
+    if (value) {
+      setEmptySearchBar(false);
+    } else {
+      setEmptySearchBar(true);
+    }
   };
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -40,6 +50,15 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
           placeholder="write something..."
         />
       </label>
+      {!emptySearchBar ? (
+        <button
+          className="searchForm__crossBtn"
+          type="button"
+          onClick={clickCrossBtnHandler}
+        >
+          <div className="searchForm__crossBtn__icon"></div>
+        </button>
+      ) : null}
       <button className="searchForm__submitBtn" type="submit">
         <div className="searchForm__submitBtn__icon"></div>
       </button>
