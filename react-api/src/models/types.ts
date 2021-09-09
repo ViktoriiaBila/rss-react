@@ -22,6 +22,19 @@ interface Photo {
   title: string;
 }
 
+interface GET200_People {
+  person: PersonInfo;
+}
+
+interface PersonInfo {
+  username: PersonContent;
+  realname: PersonContent;
+}
+
+interface PersonContent {
+  _content: string;
+}
+
 // props types
 
 interface ISearchFormProps {
