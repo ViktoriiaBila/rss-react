@@ -10,6 +10,7 @@
     text-align: center;
 
     & > td {
+      padding: $padding;
       font-family: $boldFont;
       font-size: $loadingPopupFontSize;
       color: $white;
