@@ -14,11 +14,16 @@
       font-family: $boldFont;
       font-size: $loadingPopupFontSize;
       color: $white;
+      text-align: center;
     }
   }
 
   &__photoElement {
     background-color: $lightPurple2;
+
+    & > td {
+      text-align: center;
+    }
 
     &__photo {
       border-radius: $photoElementBorderRadius 0 0 $photoElementBorderRadius;
