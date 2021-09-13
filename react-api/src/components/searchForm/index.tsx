@@ -2,6 +2,7 @@ import { AxiosResponse } from 'axios';
 import React, { useState } from 'react';
 import { axiosInstance } from '../../services/api';
 import { APIKEY } from '../../shared/constants/apiKey';
+import { ESortValues } from '../../shared/constants/sortValues';
 import './searchForm.scss';
 
 export function SearchForm(props: ISearchFormProps): JSX.Element {
@@ -28,8 +29,9 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
     props.setIsLoading(true);
     try {
       const response: AxiosResponse<GET200_Photos> = await axiosInstance.get(
-        `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&extras=owner_name&per_page=20&page=1&format=json&nojsoncallback=1`,
+        `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&extras=owner_name&sort=${props.sort}&per_page=${props.perPage}&page=${props.page}&format=json&nojsoncallback=1`,
       );
+      props.setPages(String(response.data.photos.pages));
       props.setPhotos(response.data.photos.photo);
     } catch (error) {
       console.error(error);

@@ -28,6 +28,10 @@ interface Photo {
 interface ISearchFormProps {
   setPhotos: React.Dispatch<React.SetStateAction<Array<Photo> | null>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setPages: React.Dispatch<React.SetStateAction<string>>;
+  sort: string;
+  page: string;
+  perPage: string;
 }
 
 interface IPhotosFieldProps {
@@ -39,4 +43,30 @@ interface IPhotoElementProps {
   alt: string;
   owner: string;
   title: string;
+}
+
+interface ISearchSettings {
+  sort: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
+  page: string;
+  setPage: React.Dispatch<React.SetStateAction<string>>;
+  pages: string;
+  perPage: string;
+  setPerPage: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface ISortPanel {
+  sort: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>;
+}
+
+interface IPageSettings {
+  page: string;
+  setPage: React.Dispatch<React.SetStateAction<string>>;
+  pages: string;
+}
+
+interface IPerPageSettings {
+  perPage: string;
+  setPerPage: React.Dispatch<React.SetStateAction<string>>;
 }
