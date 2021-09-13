@@ -28,7 +28,7 @@ export function SearchForm(props: ISearchFormProps): JSX.Element {
     props.setIsLoading(true);
     try {
       const response: AxiosResponse<GET200_Photos> = await axiosInstance.get(
-        `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&per_page=20&page=1&format=json&nojsoncallback=1`,
+        `?method=flickr.photos.search&api_key=${APIKEY}&text=${searchValue}&extras=owner_name&per_page=20&page=1&format=json&nojsoncallback=1`,
       );
       props.setPhotos(response.data.photos.photo);
     } catch (error) {

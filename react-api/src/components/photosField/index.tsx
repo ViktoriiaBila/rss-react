@@ -19,7 +19,7 @@ export function PhotosField(props: IPhotosFieldProps): JSX.Element {
               key={index}
               url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${sizeSuffix}.jpg`}
               alt={`photo-${photo.id}`}
-              owner={photo.owner}
+              owner={photo.ownername}
               title={photo.title}
             />
           );

@@ -20,6 +20,7 @@ interface Photo {
   secret: string;
   server: string;
   title: string;
+  ownername: string;
 }
 
 // props types
