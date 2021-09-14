@@ -2,7 +2,6 @@ import { AxiosResponse } from 'axios';
 import React, { useState } from 'react';
 import { axiosInstance } from '../../services/api';
 import { APIKEY } from '../../shared/constants/apiKey';
-import { ESortValues } from '../../shared/constants/sortValues';
 import './searchForm.scss';
 
 export function SearchForm(props: ISearchFormProps): JSX.Element {
