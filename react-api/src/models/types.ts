@@ -23,15 +23,22 @@ interface Photo {
   ownername: string;
 }
 
+interface SearchSettings {
+  sort: string;
+  page: string;
+  pages: string;
+  perPage: string;
+  errorPage: boolean;
+  errorPerPage: boolean;
+}
+
 // props types
 
 interface ISearchFormProps {
   setPhotos: React.Dispatch<React.SetStateAction<Array<Photo> | null>>;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  setPages: React.Dispatch<React.SetStateAction<string>>;
-  sort: string;
-  page: string;
-  perPage: string;
+  searchSettings: SearchSettings;
+  setSearchSettings: React.Dispatch<React.SetStateAction<SearchSettings>>;
 }
 
 interface IPhotosFieldProps {
@@ -45,36 +52,25 @@ interface IPhotoElementProps {
   title: string;
 }
 
-interface ISearchSettings {
-  sort: string;
-  setSort: React.Dispatch<React.SetStateAction<string>>;
-  page: string;
-  setPage: React.Dispatch<React.SetStateAction<string>>;
-  pages: string;
-  perPage: string;
-  setPerPage: React.Dispatch<React.SetStateAction<string>>;
-  errorPage: boolean;
-  setErrorPage: React.Dispatch<React.SetStateAction<boolean>>;
-  errorPerPage: boolean;
-  setErrorPerPage: React.Dispatch<React.SetStateAction<boolean>>;
+interface ISearchSettingsProps {
+  searchSettings: SearchSettings;
+  setSearchSettings: React.Dispatch<React.SetStateAction<SearchSettings>>;
 }
 
-interface ISortPanel {
+interface ISortPanelProps {
   sort: string;
-  setSort: React.Dispatch<React.SetStateAction<string>>;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-interface IPageSettings {
+interface IPageSettingsProps {
   page: string;
-  setPage: React.Dispatch<React.SetStateAction<string>>;
   pages: string;
   errorPage: boolean;
-  setErrorPage: React.Dispatch<React.SetStateAction<boolean>>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-interface IPerPageSettings {
+interface IPerPageSettingsProps {
   perPage: string;
-  setPerPage: React.Dispatch<React.SetStateAction<string>>;
   errorPerPage: boolean;
-  setErrorPerPage: React.Dispatch<React.SetStateAction<boolean>>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

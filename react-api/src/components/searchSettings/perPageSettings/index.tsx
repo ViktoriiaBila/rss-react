@@ -1,13 +1,6 @@
 import React from 'react';
-import { validatePerPageValue } from '../../../shared/function/validate';
 
-export function PerPageSettings(props: IPerPageSettings): JSX.Element {
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    props.setPerPage(value);
-    props.setErrorPerPage(validatePerPageValue(value));
-  };
-
+export function PerPageSettings(props: IPerPageSettingsProps): JSX.Element {
   return (
     <label className="searchSettingsForm__label" htmlFor="perPage">
       <span className="searchSettingsForm__label__title">
@@ -25,7 +18,7 @@ export function PerPageSettings(props: IPerPageSettings): JSX.Element {
         min="5"
         max="500"
         step="5"
-        onChange={changeHandler}
+        onChange={props.onChange}
       />
       {props.errorPerPage ? (
         <span className="searchSettingsForm__error">invalid value</span>

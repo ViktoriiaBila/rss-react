@@ -1,15 +1,11 @@
 import React from 'react';
-import { validatePageValue } from '../../../shared/function/validate';
 
-export function PageSettings(props: IPageSettings): JSX.Element {
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    props.setPage(value);
-    props.setErrorPage(validatePageValue(value, props.pages));
-  };
+export function PageSettings(props: IPageSettingsProps): JSX.Element {
   return (
     <label className="searchSettingsForm__label" htmlFor="page">
-      <span className="searchSettingsForm__label__title">Choose page</span>
+      <span className="searchSettingsForm__label__title">
+        Choose page (max page is {props.pages})
+      </span>
       <input
         className={
           props.errorPage
@@ -21,7 +17,7 @@ export function PageSettings(props: IPageSettings): JSX.Element {
         value={props.page}
         min="1"
         max={props.pages}
-        onChange={changeHandler}
+        onChange={props.onChange}
       />
       {props.errorPage ? (
         <span className="searchSettingsForm__error">invalid value</span>

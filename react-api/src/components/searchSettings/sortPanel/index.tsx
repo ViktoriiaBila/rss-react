@@ -1,12 +1,7 @@
 import React from 'react';
 import { ESortValues } from '../../../shared/constants/sortValues';
 
-export function SortPanel(props: ISortPanel): JSX.Element {
-  const changeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    props.setSort(value);
-  };
-
+export function SortPanel(props: ISortPanelProps): JSX.Element {
   return (
     <label className="searchSettingsForm__label" htmlFor="sort">
       <span className="searchSettingsForm__label__title">
@@ -16,7 +11,7 @@ export function SortPanel(props: ISortPanel): JSX.Element {
         className="searchSettingsForm__select"
         name="sort"
         value={props.sort}
-        onChange={changeHandler}
+        onChange={props.onChange}
       >
         <option>{ESortValues.datePostedAsc}</option>
         <option>{ESortValues.datePostedDesc}</option>

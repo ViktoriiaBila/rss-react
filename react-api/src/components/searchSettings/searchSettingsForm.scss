@@ -30,6 +30,7 @@
     border: solid 1px $lightGreen;
     border-radius: $searchBarBorderRadius;
     outline: none;
+    text-align: center;
   }
 
   &__select {
@@ -39,7 +40,6 @@
   &__input {
     width: $settingsInputWidth;
     margin-right: $settingsMargin / 2;
-    text-align: center;
 
     &.error {
       border-color: $error;

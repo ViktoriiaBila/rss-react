@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ESortValues } from '../shared/constants/sortValues';
+import { initialSearchSettings } from '../shared/constants/initialSearchSettings';
 import { LoadingPopup } from './loadingPopup';
 import { PhotosField } from './photosField';
 import { SearchForm } from './searchForm';
@@ -8,35 +8,21 @@ import { SearchSettings } from './searchSettings';
 export function Wrapper(): JSX.Element {
   const [photos, setPhotos] = useState<Array<Photo> | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [sort, setSort] = useState<string>(ESortValues.datePostedDesc);
-  const [page, setPage] = useState<string>('1');
-  const [perPage, setPerPage] = useState<string>('5');
-  const [pages, setPages] = useState<string>('1');
-  const [errorPage, setErrorPage] = useState<boolean>(false);
-  const [errorPerPage, setErrorPerPage] = useState<boolean>(false);
+  const [searchSettings, setSearchSettings] = useState<SearchSettings>(
+    initialSearchSettings,
+  );
 
   return (
     <div className="wrapper">
       <SearchForm
         setPhotos={setPhotos}
         setIsLoading={setIsLoading}
-        sort={sort}
-        page={page}
-        perPage={perPage}
-        setPages={setPages}
+        searchSettings={searchSettings}
+        setSearchSettings={setSearchSettings}
       />
       <SearchSettings
-        sort={sort}
-        setSort={setSort}
-        page={page}
-        setPage={setPage}
-        perPage={perPage}
-        setPerPage={setPerPage}
-        pages={pages}
-        errorPage={errorPage}
-        setErrorPage={setErrorPage}
-        errorPerPage={errorPerPage}
-        setErrorPerPage={setErrorPerPage}
+        searchSettings={searchSettings}
+        setSearchSettings={setSearchSettings}
       />
       {photos ? <PhotosField photos={photos} /> : ''}
       {isLoading ? <LoadingPopup /> : ''}
