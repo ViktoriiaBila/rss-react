@@ -9,7 +9,7 @@ $white: #ffffff;
 $semiTransparentBlack: rgb(0, 0, 0, 0.5);
 
 // search bar
-$searchBarWidth: 400px;
+$searchBarWidth: 480px;
 $searchBarHeight: 40px;
 $searchBarBorderRadius: 20px;
 
@@ -33,6 +33,12 @@ $photoFieldMargin: 20px;
 $photoElementBorderRadius: 10px;
 $MaxTitleWidth: 400px;
 $padding: 5px;
+
+// search settings
+$settingsMargin: 10px;
+$settingsTitleWidth: 345px;
+$settingsSelectWidth: 170px;
+$settingsInputWidth: 70px;
 
 //fonts
 $font: 'Besley-Regular';

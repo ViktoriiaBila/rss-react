@@ -1,0 +1,42 @@
+@import '../../styles/variables.scss';
+
+.searchSettingsForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: $settingsMargin;
+
+  &__label__title,
+  &__select,
+  &__input {
+    font-size: 14px;
+  }
+
+  &__label {
+    display: flex;
+    margin-top: $settingsMargin;
+
+    &__title {
+      width: $settingsTitleWidth;
+      margin-right: $settingsMargin;
+      text-align: end;
+      text-transform: lowercase;
+    }
+  }
+
+  &__select,
+  &__input {
+    background: transparent;
+    border: solid 1px $lightGreen;
+    border-radius: $searchBarBorderRadius;
+    outline: none;
+  }
+
+  &__select {
+    width: $settingsSelectWidth;
+  }
+
+  &__input {
+    width: $settingsInputWidth;
+    text-align: center;
+  }
+}

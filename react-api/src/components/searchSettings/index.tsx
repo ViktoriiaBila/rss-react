@@ -3,6 +3,7 @@ import { SortPanel } from './sortPanel';
 import '../../models/types';
 import { PageSettings } from './pageSettings';
 import { PerPageSettings } from './perPageSettings';
+import './searchSettingsForm.scss';
 
 export function SearchSettings(props: ISearchSettings): JSX.Element {
   return (

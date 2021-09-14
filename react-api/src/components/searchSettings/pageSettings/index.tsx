@@ -6,9 +6,10 @@ export function PageSettings(props: IPageSettings): JSX.Element {
     props.setPage(value);
   };
   return (
-    <label htmlFor="page">
-      Choose page
+    <label className="searchSettingsForm__label" htmlFor="page">
+      <span className="searchSettingsForm__label__title">Choose page</span>
       <input
+        className="searchSettingsForm__input"
         type="number"
         name="page"
         value={props.page}

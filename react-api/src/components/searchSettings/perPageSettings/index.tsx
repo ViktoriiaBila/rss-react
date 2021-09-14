@@ -6,9 +6,12 @@ export function PerPageSettings(props: IPerPageSettings): JSX.Element {
     props.setPerPage(value);
   };
   return (
-    <label htmlFor="perPage">
-      Choose a number of photos to return per page
+    <label className="searchSettingsForm__label" htmlFor="perPage">
+      <span className="searchSettingsForm__label__title">
+        Choose a number of photos to return per page
+      </span>
       <input
+        className="searchSettingsForm__input"
         type="number"
         name="perPage"
         value={props.perPage}
