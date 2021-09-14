@@ -53,6 +53,10 @@ interface ISearchSettings {
   pages: string;
   perPage: string;
   setPerPage: React.Dispatch<React.SetStateAction<string>>;
+  errorPage: boolean;
+  setErrorPage: React.Dispatch<React.SetStateAction<boolean>>;
+  errorPerPage: boolean;
+  setErrorPerPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface ISortPanel {
@@ -64,9 +68,13 @@ interface IPageSettings {
   page: string;
   setPage: React.Dispatch<React.SetStateAction<string>>;
   pages: string;
+  errorPage: boolean;
+  setErrorPage: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface IPerPageSettings {
   perPage: string;
   setPerPage: React.Dispatch<React.SetStateAction<string>>;
+  errorPerPage: boolean;
+  setErrorPerPage: React.Dispatch<React.SetStateAction<boolean>>;
 }

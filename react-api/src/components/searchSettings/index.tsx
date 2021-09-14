@@ -13,8 +13,15 @@ export function SearchSettings(props: ISearchSettings): JSX.Element {
         page={props.page}
         setPage={props.setPage}
         pages={props.pages}
+        errorPage={props.errorPage}
+        setErrorPage={props.setErrorPage}
       />
-      <PerPageSettings perPage={props.perPage} setPerPage={props.setPerPage} />
+      <PerPageSettings
+        perPage={props.perPage}
+        setPerPage={props.setPerPage}
+        errorPerPage={props.errorPerPage}
+        setErrorPerPage={props.setErrorPerPage}
+      />
     </form>
   );
 }

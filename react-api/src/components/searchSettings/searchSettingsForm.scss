@@ -7,7 +7,8 @@
 
   &__label__title,
   &__select,
-  &__input {
+  &__input,
+  &__error {
     font-size: 14px;
   }
 
@@ -37,6 +38,15 @@
 
   &__input {
     width: $settingsInputWidth;
+    margin-right: $settingsMargin / 2;
     text-align: center;
+
+    &.error {
+      border-color: $error;
+    }
+  }
+
+  &__error {
+    color: $error;
   }
 }

@@ -12,6 +12,8 @@ export function Wrapper(): JSX.Element {
   const [page, setPage] = useState<string>('1');
   const [perPage, setPerPage] = useState<string>('5');
   const [pages, setPages] = useState<string>('1');
+  const [errorPage, setErrorPage] = useState<boolean>(false);
+  const [errorPerPage, setErrorPerPage] = useState<boolean>(false);
 
   return (
     <div className="wrapper">
@@ -31,6 +33,10 @@ export function Wrapper(): JSX.Element {
         perPage={perPage}
         setPerPage={setPerPage}
         pages={pages}
+        errorPage={errorPage}
+        setErrorPage={setErrorPage}
+        errorPerPage={errorPerPage}
+        setErrorPerPage={setErrorPerPage}
       />
       {photos ? <PhotosField photos={photos} /> : ''}
       {isLoading ? <LoadingPopup /> : ''}
